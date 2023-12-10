@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import Banner from "./components/Banner";
+import CarTable from './components/CarTable';
 
 function App() {
   return (
     <div className="App">
       <Banner/>
+      <CarTable/>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
