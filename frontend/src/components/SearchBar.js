@@ -1,0 +1,5 @@
+const SearchBar = () => {
+    <div>
+        
+    </div>
+}

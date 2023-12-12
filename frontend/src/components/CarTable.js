@@ -11,6 +11,7 @@ const CarTable = ({ cars }) => {
                     <th>Model</th>
                     <th>Year</th>
                     <th>Price Per Hour*</th>
+                    <th>Price Per Day*</th>
                     <th></th>
                 </tr>
             </thead>
@@ -21,6 +22,7 @@ const CarTable = ({ cars }) => {
                     <td className="text-center align-middle">Huracan EVO Spyder</td>
                     <td className="text-center align-middle">2023</td>
                     <td className="text-center align-middle">$300</td>
+                    <td className="text-center align-middle">$3000</td>
                     <td className="text-center align-middle"><button className='btn btn-primary'>RENT</button></td>
                 </tr>
                 <tr>
@@ -29,6 +31,7 @@ const CarTable = ({ cars }) => {
                     <td className="text-center align-middle">Huracan EVO Spyder</td>
                     <td className="text-center align-middle">2023</td>
                     <td className="text-center align-middle">$300</td>
+                    <td className="text-center align-middle">$3000</td>
                     <td className="text-center align-middle"><button className='btn btn-primary'>RENT</button></td>
                 </tr>
                 <tr>
@@ -37,15 +40,17 @@ const CarTable = ({ cars }) => {
                     <td className="text-center align-middle">Huracan EVO Spyder</td>
                     <td className="text-center align-middle">2023</td>
                     <td className="text-center align-middle">$300</td>
+                    <td className="text-center align-middle">$3000</td>
                     <td className="text-center align-middle"><button className='btn btn-primary'>RENT</button></td>
                 </tr>
                 {/* {cars.map((car, index) => (
                     <tr key={index}>
-                        <td><img src={car.picture} alt={`${car.make} ${car.model}`} style={{ width: '100px' }} /></td>
-                        <td>{car.make}</td>
-                        <td>{car.model}</td>
-                        <td>{car.year}</td>
-                        <td>${car.dailyPricing}</td>
+                        <td><img src={car.picture} alt={`${car.make} ${car.model}`} style={{ width: '200px' }} /></td>
+                        <td className="text-center align-middle">{car.make}</td>
+                        <td className="text-center align-middle">{car.model}</td>
+                        <td className="text-center align-middle">{car.year}</td>
+                        <td className="text-center align-middle">${car.hourlyPricing}</td>
+                        <td className="text-center align-middle">${car.dailyPricing}</td>
                     </tr>
                 ))} */}
             </tbody>
