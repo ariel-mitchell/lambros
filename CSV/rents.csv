@@ -1,0 +1,3 @@
+Customer_id,Vehicle_id,Start_date,Return_date,Amount_due,Noofdays,Noofweeks,booked,Scheduled
+1,1027,2018-04-20,2024-01-01,100.5,0,1,1,0
+2,1029,2018-04-20,2024-01-01,122,4,0,1,0
