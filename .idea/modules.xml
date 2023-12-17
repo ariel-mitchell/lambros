@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Lambros.iml" filepath="$PROJECT_DIR$/.idea/Lambros.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lambros-premium-rental-cars.iml" filepath="$PROJECT_DIR$/.idea/modules/lambros-premium-rental-cars.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lambros-premium-rental-cars.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lambros-premium-rental-cars.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lambros-premium-rental-cars.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lambros-premium-rental-cars.test.iml" />
     </modules>
   </component>
 </project>
