@@ -52,9 +52,10 @@ const CarTable = ({ cars }) => {
                         <td className="text-center align-middle">${car.hourlyPricing}</td>
                         <td className="text-center align-middle">${car.dailyPricing}</td>
                     </tr>
-                ))} */}
+                ))} */}                
             </tbody>
         </table>
+        
     );
 };
 
