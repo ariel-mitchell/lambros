@@ -1,16 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
-import Banner from "./components/Banner";
-import CarTable from './components/CarTable';
-import LoginForm from './components/LoginForm';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Login from './pages/Login';
+import Register from './pages/Register';
+
 
 function App() {
   return (
-    <div className="App">
-      <Banner/>
-      <LoginForm />
-      <CarTable cars=""/>
-      
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Home />}/>
+          <Route path="/home" element={<Home />}/>
+          <Route path="/about" element={<About />}/>
+          <Route path="/login" element={<Login />}/>
+          <Route path="/register" element={<Register />}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

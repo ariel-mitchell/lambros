@@ -1,11 +1,11 @@
 import Banner from "../components/Banner";
 
-function Register() {
+function About() {
     return (
         <>
-            <Banner/>
+        <Banner/>
         </>
     )
 }
 
-export default Register;
+export default About;
