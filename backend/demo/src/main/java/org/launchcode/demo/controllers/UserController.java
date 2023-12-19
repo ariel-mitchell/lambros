@@ -1,2 +1,4 @@
-package org.launchcode.demo.controllers;public class UserController {
+package org.launchcode.demo.controllers;
+
+public class UserController {
 }
