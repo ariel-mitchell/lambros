@@ -5,7 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import org.launchcode.demo.data.CarStatus;
 
 @Entity
 public class Car {
@@ -27,9 +26,9 @@ public class Car {
     @Min(0)
     private int mileage;
 
-    private CarStatus status;
+    private String status;
 
-    public Car(String make, String model, int year, int price, int mileage, CarStatus status) {
+    public Car(String make, String model, int year, int price, int mileage, String status) {
         this.make = make;
         this.model = model;
         this.year = year;
@@ -88,11 +87,11 @@ public class Car {
         this.mileage = mileage;
     }
 
-    public CarStatus getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(CarStatus status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }

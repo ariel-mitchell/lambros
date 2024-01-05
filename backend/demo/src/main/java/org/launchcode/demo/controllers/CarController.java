@@ -1,22 +1,30 @@
 package org.launchcode.demo.controllers;
 
 import org.launchcode.demo.data.CarRepository;
+import org.launchcode.demo.models.Car;
+import org.launchcode.demo.models.CarData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-//@RequestMapping("carEntry")
+import java.util.ArrayList;
+
+@RestController
 @RequestMapping("")
 public class CarController {
     @Autowired
     private CarRepository carRepository;
 
-    @GetMapping("/")
-    public String carDisplay(Model model){
+    @GetMapping("/admin")
+    public ArrayList<Car> carDisplay(Model model){
+        ArrayList<Car> cars;
+        cars = CarData.findAvailableCars();
+        model.addAttribute(cars);
 
-        return "placeholder";
+        //placeholder strings can get swapped around as we figure out where
+        return cars;
     }
 }
