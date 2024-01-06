@@ -25,6 +25,9 @@ const displayCars = (application) => {
         <div><p>Car Model: ${application[0].model}</p></div>
         <div><p>Year: ${application[0].year}</p></div>
         <div><p>Fuel: ${application[0].fuel_type}</p></div>
+        <div><p>Wheel Transmission: ${application[0].drive}</p></div>
+        <div><p>Miles Per Gallon (city): ${application[0].city_mpg}</p></div>
+        <div><p>Miles Per Gallon (highway): ${application[0].highway_mpg}</p></div>
         `
         const showCars = document.querySelector('.show-car')
         showCars.innerHTML = basicCarHtml;
