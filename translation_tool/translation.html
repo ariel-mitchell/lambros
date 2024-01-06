@@ -4,15 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Translation Tool</title>
-
+    
     <!--  -->
     <link rel="stylesheet" href="translation.css">
     <script src="translation.js"></script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    
+
+    <!-- Styling for Translator Tool -->
+    <!-- <style>
+        .translated-ltr{
+            margin-top: -20px;;
+            }
+            .translated-ltr{
+                margin-top: -20px;
+            }
+            /* "Google Translate" */
+            .goog-te-banner-frame{
+                visibility: hidden !important;
+                color: transparent !important;
+                /* margin-top: -20px; */
+            }
+            /* Powered By Banner */
+            .VIpgJd-ZVi9od-l4eHX-hSRGPd{ 
+                visibility: hidden !important;
+                color: transparent !important;
+                /* display: none !important; */
+            }
+            /* "Powered by" */
+            .goog-te-gadget{
+                color: transparent !important;
+            }
+            .VIpgJd-ZVi9od-LgbsSe {
+                visibility: hidden;
+            }
+            .VIpgJd-ZVi9od-ORHb {
+                visibility: hidden;
+
+            }
+            .VIpgJd-ZVi9od-ORHb-OEVmcd {
+                visibility: hidden !important;
+            }
+            /* Translator Selection */
+            .goog-te-combo {
+                display: block;
+                position: absolute;
+                align-items: center;
+                color: blue;
+                /* right: 14px; */
+                /* top: -40px; */
+            }
+            /* #skiptranslate goog-te-gadget-te-gadget { */
+                /* visibility: hidden; */
+                /* right: 50%; */
+                /* color: red; */
+            /* }          */
+            </style> -->
 </head>
 <body>
     <div class="google_element"></div>
+    <div src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></div>
 
+    <script>
+        function loadGoogleTranslate() {
+            new google.translate.TranslateElement(".google_element")
+        }
+    </script>
+    
     <h1>Hello, World!</h1>
     <p>These are example sentences for the tool to translate.</p>
 </body>
