@@ -6,6 +6,7 @@ import org.launchcode.demo.models.CarData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,12 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("")
+@CrossOrigin
+@RequestMapping(value = "admin")
 public class CarController {
     @Autowired
     private CarRepository carRepository;
 
-    @GetMapping("/admin")
+    @GetMapping(value = "")
     public ArrayList<Car> carDisplay(Model model){
         ArrayList<Car> cars;
         cars = CarData.findAvailableCars();
@@ -26,5 +28,15 @@ public class CarController {
 
         //placeholder strings can get swapped around as we figure out where
         return cars;
+    }
+
+    @GetMapping(value = "add")
+    public String addCar(){
+        return("aString");
+    }
+
+    @GetMapping(value = "delete")
+    public String deleteCar(){
+        return("aString");
     }
 }
