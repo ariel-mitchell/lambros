@@ -49,6 +49,7 @@ public class CarData {
             }
             // flag the data as loaded, so we don't do it twice
             isDataLoaded = true;
+            System.out.println("ONLY ONCE");
 
         } catch (IOException e) {
             System.out.println("Failed to load job data");
@@ -67,5 +68,10 @@ public class CarData {
         }
 
         return cars;
+    }
+    public static ArrayList<Car> findAllCars(){
+        loadData();
+
+        return allCars;
     }
 }

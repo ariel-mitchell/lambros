@@ -2,14 +2,16 @@ import logo from './logo.svg';
 import './App.css';
 import Banner from "./components/Banner";
 import CarTable from './components/CarTable';
-import Admin from './components/Admin';
+import AdminAdd from './components/admin/AdminAdd';
+import AdminUpdate from './components/admin/AdminUpdate';
 
 function App() {
   return (
     <div className="App">
       <Banner/>
       <CarTable cars=""/>
-      <Admin></Admin>
+      <AdminAdd/>
+      <AdminUpdate/>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

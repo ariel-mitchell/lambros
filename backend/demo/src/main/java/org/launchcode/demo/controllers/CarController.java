@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 @RestController
 @CrossOrigin
-@RequestMapping(value = "admin")
+@RequestMapping(value = "cars")
 public class CarController {
     @Autowired
     private CarRepository carRepository;
@@ -28,15 +28,5 @@ public class CarController {
 
         //placeholder strings can get swapped around as we figure out where
         return cars;
-    }
-
-    @GetMapping(value = "add")
-    public String addCar(){
-        return("aString");
-    }
-
-    @GetMapping(value = "delete")
-    public String deleteCar(){
-        return("aString");
     }
 }

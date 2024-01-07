@@ -8,14 +8,13 @@ const CarTable = ({ cars }) => {
     const [post, setPost] = React.useState(null);
 
     React.useEffect(() => {
-        Axios.get('http://localhost:8080/admin').then((response) => {
+        Axios.get('http://localhost:8080/cars').then((response) => {
         setPost(response.data);
         });
     }, []);
 
     //kick out attemped responses before promise is fulfilled
     if (!post) return null
-
     //return table with updated car data
     return (
         <table className="table table-hover table-striped" style={{marginTop:'50px'}}>
