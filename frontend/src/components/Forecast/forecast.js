@@ -32,6 +32,8 @@ const Forecast = () => {
         fetchData();
     }
 
+
+    //TODO: Add Design layout and Icons
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -45,10 +47,13 @@ const Forecast = () => {
             {forecastData ? (
                 <>
                 <h2>{forecastData.name}</h2>
-                <p>Temperature: {forecastData.main.temp} &deg;</p>
+                <p>Temperature: {forecastData.main.temp}&deg;</p>
+                <p>Description: {forecastData.weather[0].description}</p>
+                <p>Feels like: {forecastData.main.feels_like}&deg;</p>
+                <p>Wind Speed: {forecastData.wind.speed} mph</p>
                 </>
             ) : (
-                <p>Loading...</p>
+                <p>Waiting for input...</p>
             )}
         </div>
     );
