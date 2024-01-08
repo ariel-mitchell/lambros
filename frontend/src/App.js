@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Banner from "./components/Banner";
 import CarTable from './components/CarTable';
+import Forecast from './components/Forecast/forecast';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           Learn React
         </a>
       </header> */}
+      <Forecast />
     </div>
   );
 }
