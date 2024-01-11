@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 const CarTable = ({ cars }) => {
     return (
         <table className="table table-hover table-striped" style={{marginTop:'50px'}}>

@@ -2,6 +2,41 @@
   text-align: center;
 }
 
+body {
+  margin: 20px auto;
+}
+
+.container {
+  background-color: rgba(170,170,170, 0.25);
+  border-radius: 10px;
+  width: 60vw;
+  max-width: 500px;
+  min-width: 410px;
+  margin: 2rem auto;
+  padding: .01em 0 .7em;
+}
+
+.legend{
+  float: none;
+  margin: 10px;
+  width: 68px;
+}
+
+.legend-two{
+  float: none;
+  margin: 10px;
+  width: 101px;
+}
+
+.fieldset {
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 1em ;
+  padding: 1em;
+}
+
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

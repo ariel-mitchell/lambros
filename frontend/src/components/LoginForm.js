@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import '../App.css';
+import { NavLink, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function LoginForm() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -14,44 +18,44 @@ function LoginForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        try {
-            const response = await fetch('http://localhost:8080/api/user', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username, password }),
-            });
-            if (response.ok) {
-                const data = await response.json();
-                // Handle login success (e.g., storing the token, navigating to another page)
-            } else {
-                // Handle errors (e.g., show an error message)
-            }
-        } catch (error) {
-            console.error('Login error:', error);
-            // Handle errors (e.g., show an error message)
-        }
+        
+            await axios.post('http://localhost:8080/api/user/login', {
+                username: username, 
+                password: password
+            })
+            .then((response) => {console.log(response);})
+            .catch((error) => console.error(error));
+            
+
+
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>
-                    Username:
-                    <input type="text" value={username} onChange={handleUsernameChange} />
-                </label>
-            </div>
-            <div>
-                <label>
-                    Password:
-                    <input type="password" value={password} onChange={handlePasswordChange} />
-                </label>
-            </div>
-            <div>
-                <button type="submit">Login</button>
-            </div>
+        <div className='container'  style={{width:'500px'}}>
+
+        <form  onSubmit={handleSubmit}>
+            <fieldset className='fieldset'>
+                <legend className='legend'>Login</legend>
+                <div className="form-group">
+                    <label>
+                        Username:
+                        <input type='text' placeholder='username' className='form-control' value={username} onChange={handleUsernameChange} />
+                    </label>
+                </div>
+                <div className="form-group">
+                    <label>
+                        Password:
+                        <input type='password'  placeholder='password' className='form-control' value={password} onChange={handlePasswordChange} />
+                    </label>
+                </div>
+                <br />
+                <div>
+                    <button type="submit" className='btn btn-primary'>Login</button>
+                    <NavLink to="/Register" style={{float:'right', textDecoration:'none', transform:'translateY(10px)'}}>Register</NavLink>
+                </div>
+            </fieldset>
         </form>
+        </div>
     );
 }
 
