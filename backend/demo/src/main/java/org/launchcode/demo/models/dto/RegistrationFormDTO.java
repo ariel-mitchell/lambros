@@ -1,5 +1,6 @@
 package org.launchcode.demo.models.dto;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -11,6 +12,11 @@ public class RegistrationFormDTO extends LoginFormDTO{
     @Size(min = 7, max = 30, message = "Password must be between 7-30 characters.")
     private String verifyPassword;
 
+    @NotBlank
+    @Size(max = 50)
+    @Email
+    private String email;
+
     public String getVerifyPassword() {
         return verifyPassword;
     }
@@ -18,4 +24,11 @@ public class RegistrationFormDTO extends LoginFormDTO{
     public void setVerifyPassword(String verifyPassword) {
         this.verifyPassword = verifyPassword;
     }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 }
