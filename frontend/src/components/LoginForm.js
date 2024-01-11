@@ -18,16 +18,16 @@ function LoginForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        
-            await axios.post('http://localhost:8080/api/user/login', {
-                username: username, 
-                password: password
-            })
-            .then((response) => {console.log(response);})
-            .catch((error) => console.error(error));
-            
-
-
+        await axios.post('http://localhost:8080/api/user/login', {
+            username: username, 
+            password: password
+        })
+        .then((response) => {
+            console.log('Login successful:', response.data);
+            navigate("/home");
+            localStorage.setItem('username', username);
+        })
+        .catch((error) => console.error('Login failed:', error));
     };
 
     return (

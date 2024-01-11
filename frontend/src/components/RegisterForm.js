@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
 
@@ -7,6 +8,7 @@ function RegisterForm() {
     const [password, setPassword] = useState('');
     const [verifyPassword, setVerifyPassword] = useState('');
     const [email, setEmail] = useState('');
+    const navigate = useNavigate();
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -37,8 +39,12 @@ function RegisterForm() {
                 verifyPassword: verifyPassword, 
                 email: email 
             })
-            .then((response) => {console.log(response)})
-            .catch((error) => console.error(error));
+            .then((response) => {
+                console.log('Register successful:', response.data);
+                navigate("/home");
+                localStorage.setItem('username', username);
+            })
+            .catch((error) => console.error('Register failed:', error));
             
     };
 
