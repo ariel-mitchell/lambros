@@ -40,7 +40,6 @@ public class UserController {
         );
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
-
         return ResponseEntity.ok("User registered successfully");
     }
 
@@ -53,7 +52,14 @@ public class UserController {
         }
         setUserInSession(request.getSession(), existingUser);
         return ResponseEntity.ok("User logged in successfully");
+    }
 
-
+    @PostMapping("/logout")
+    public ResponseEntity<?> logoutUser(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        return ResponseEntity.ok("User logged out successfully");
     }
 }
