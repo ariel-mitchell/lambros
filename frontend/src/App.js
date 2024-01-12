@@ -12,17 +12,19 @@ function App() {
   return (
     <div className="App">
       <Banner/>
+      <section>
+        <div style={{ width: "50vw", height: "50vh" }}>
+          <Canvas size={[`2000px`,`3000px`]} camera={{position: [10, 0, 80], fov: 45}} style={{width: `100%`, height: `100%`, position: `relative` }}>
+            <pointLight position={[10, 10, 10]} />
+            <ambientLight />
+            <ThreeDee position={[0, 0, 0]} />
+          </Canvas>
+        </div>
+      </section>
       <CarTable cars=""/>
       <AdminAdd/>
       <AdminUpdate/>
       {/* <AdminGenHash/> */}
-      <section className='App-header'>
-        <Canvas>
-          {/* <pointLight position={[10, 10, 10]} /> */}
-          <ambientLight />
-          <ThreeDee position={[0, 0, 0]} />
-        </Canvas>
-      </section>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

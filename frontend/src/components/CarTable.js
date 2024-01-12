@@ -33,7 +33,7 @@ const CarTable = ({ cars }) => {
                 {post.map((car, index) => (
                     <tr key={index}>
                         {/* <td><img src={car.picture} alt={`${car.make} ${car.model}`} style={{ width: '200px' }} /></td> */}
-                        <td><img src='/images/LamHur23.png' style={{ width: '200px' }}></img></td>
+                        <td><img src= {'/images/' + car.carImg} style={{ width: '200px' }}></img></td>
                         <td className="text-center align-middle">{car.make}</td>
                         <td className="text-center align-middle">{car.model}</td>
                         <td className="text-center align-middle">{car.year}</td>
