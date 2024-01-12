@@ -3,7 +3,7 @@ import React from "react";
 import Axios from "axios";
 
 function AdminUpdate(){
-    //add car form
+    //update car form
     return(
     <div>
         <h1>Edit Car Entry</h1>

@@ -42,10 +42,18 @@ public class CarData {
 
             // Put the records into a more friendly format
             for (CSVRecord record : records) {
+                Car newCar = new Car(record.get(0),record.get(1),Integer.parseInt(record.get(2)),Integer.parseInt(record.get(3)),Integer.parseInt(record.get(4)),record.get(5), record.get(6));
 
-                Car newCar = new Car(record.get(0),record.get(1),Integer.parseInt(record.get(2)),Integer.parseInt(record.get(3)),Integer.parseInt(record.get(4)),record.get(5));
+                boolean addCar = true;
+                for(int i=0; i<allCars.size(); i++){
+                    if(newCar.equals(allCars.get(i))){
+                        addCar = false;
+                    }
+                }
 
-                allCars.add(newCar);
+                if(addCar) {
+                    allCars.add(newCar);
+                }
             }
             // flag the data as loaded, so we don't do it twice
             isDataLoaded = true;

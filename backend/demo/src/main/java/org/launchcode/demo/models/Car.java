@@ -6,6 +6,8 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 
+import java.util.Objects;
+
 @Entity
 public class Car {
     @Id
@@ -28,13 +30,16 @@ public class Car {
 
     private String status;
 
-    public Car(String make, String model, int year, int price, int mileage, String status) {
+    private String carImg;
+
+    public Car(String make, String model, int year, int price, int mileage, String status, String carImg) {
         this.make = make;
         this.model = model;
         this.year = year;
         this.price = price;
         this.mileage = mileage;
         this.status = status;
+        this.carImg = carImg;
     }
 
     public Car() {}
@@ -93,5 +98,26 @@ public class Car {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getCarImg() {
+        return carImg;
+    }
+
+    public void setCarImg(String carImg) {
+        this.carImg = carImg;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return id == car.id && year == car.year && price == car.price && mileage == car.mileage && Objects.equals(make, car.make) && Objects.equals(model, car.model) && Objects.equals(status, car.status) && Objects.equals(carImg, car.carImg);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, make, model, year, price, mileage, status, carImg);
     }
 }
