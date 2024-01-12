@@ -1,9 +1,11 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 const CarTable = ({ cars }) => {
+    
     return (
-        <table className="table table-hover table-striped" style={{marginTop:'50px'}}>
+        <table className="table table-hover table-striped" >
             <thead className="table-dark">
                 <tr>
                     <th></th>
@@ -52,9 +54,10 @@ const CarTable = ({ cars }) => {
                         <td className="text-center align-middle">${car.hourlyPricing}</td>
                         <td className="text-center align-middle">${car.dailyPricing}</td>
                     </tr>
-                ))} */}
+                ))} */}                
             </tbody>
         </table>
+        
     );
 };
 
