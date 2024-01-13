@@ -3,11 +3,11 @@ import { v4 as uuidv4 } from 'uuid';
 
 function AdminGenHash(){
     let myHash = "";
-    //const hashText = document.getElementById("hashText");
+    const hashText = document.getElementById("hashText");
 
     function generateHash(){
         myHash = uuidv4();
-        //hashText.innerHTML = myHash;
+        hashText.innerHTML = myHash;
     }
     // button.addEventListener("click", function(event){
     //     
