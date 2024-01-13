@@ -7,6 +7,7 @@ import AdminUpdate from './components/admin/AdminUpdate';
 import ThreeDee from './components/ThreeDee';
 import { Canvas } from "@react-three/fiber";
 import AdminGenHash from './components/admin/AdminGenHash';
+import Car3DModel from './components/Car3DModel';
 
 function App() {
   return (
@@ -14,10 +15,11 @@ function App() {
       <Banner/>
       <section>
         <div style={{ width: "50vw", height: "50vh" }}>
-          <Canvas size={[`2000px`,`3000px`]} camera={{position: [10, 0, 80], fov: 45}} style={{width: `100%`, height: `100%`, position: `relative` }}>
-            <pointLight position={[10, 10, 10]} />
-            <ambientLight />
-            <ThreeDee position={[0, 0, 0]} />
+          <Canvas size={[`2000px`,`3000px`]} camera={{position: [10, 0, 80], rotation: [0,0,0], fov: 45}} style={{width: `100%`, height: `100%`, position: `relative` }}>
+            <pointLight position={[30, 30, 30]} />
+            <ambientLight intensity={[20]}/>
+            {/* <ThreeDee position={[0, 0, 0]} /> */}
+            <Car3DModel position={[0,0,0]} scale={[16,16,16]}/>
           </Canvas>
         </div>
       </section>
