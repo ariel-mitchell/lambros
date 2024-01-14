@@ -8,6 +8,7 @@ function RegisterForm() {
     const [password, setPassword] = useState('');
     const [verifyPassword, setVerifyPassword] = useState('');
     const [email, setEmail] = useState('');
+    const [adminChecked, setAdminChecked] = useState('hidden');
     const navigate = useNavigate();
 
     const handleUsernameChange = (event) => {
@@ -24,6 +25,14 @@ function RegisterForm() {
 
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
+    }
+
+    const handleAdminChecked = (event) => {
+        if(adminChecked=="visible"){
+            setAdminChecked("hidden");
+        }else{
+            setAdminChecked("visible");
+        }
     }
 
     const handleSubmit = async (event) => {
@@ -76,6 +85,18 @@ function RegisterForm() {
                     <label>
                         Email:
                         <input type='email' id='email' name='email' placeholder='email' className='form-control' value={email} onChange={handleEmailChange} autoComplete="on" />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Register as Admin:&nbsp;&nbsp;
+                        <input type='checkbox' name="admin" value={adminChecked} onClick={handleAdminChecked}/>
+                    </label>
+                </div>
+                <div style={{visibility:adminChecked}}>
+                    <label>
+                        Enter your Admin Security Code:
+                        <input type='password'/>
                     </label>
                 </div>
                 <br />
