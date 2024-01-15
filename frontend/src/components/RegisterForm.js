@@ -33,18 +33,16 @@ function RegisterForm() {
             alert('Passwords do not match')
             return;
         }
-            await axios.post('http://localhost:8080/api/user/register', {
-                username: username, 
-                password: password, 
-                verifyPassword: verifyPassword, 
-                email: email 
-            })
-            .then((response) => {
-                console.log('Register successful:', response.data);
-                navigate("/home");
-                localStorage.setItem('username', username);
-            })
-            .catch((error) => console.error('Register failed:', error));
+        await axios.post('http://localhost:8080/api/user/register', {
+            username: username, 
+            password: password, 
+            verifyPassword: verifyPassword, 
+            email: email 
+        }).then((response) => {
+            console.log('Register successful:', response.data);
+            navigate("/home");
+            localStorage.setItem('username', username);
+        }).catch((error) => console.error('Register failed:', error));
             
     };
 
