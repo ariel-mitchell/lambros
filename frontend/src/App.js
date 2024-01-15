@@ -5,6 +5,7 @@ import About from './pages/About';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import NoPage from './pages/NoPage';
+import Rent from './pages/Rent';
 
 function App() {
   return (
