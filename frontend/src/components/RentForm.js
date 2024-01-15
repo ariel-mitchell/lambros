@@ -78,7 +78,7 @@ function RentForm() {
                 <p>Delivery fee:<p style={{float:'right'}}> $200</p></p>
                 <p>Total cost:<p style={{float:'right'}}> ${calculateTotal()}</p></p>
 
-                <button type="submit" className='btn btn-primary' style={{float:'right'}}>Submit</button>
+                <button type="submit" className='btn btn-primary' style={{float:'right'}}>Pay</button>
             </fieldset>
         </form>
         </div>
