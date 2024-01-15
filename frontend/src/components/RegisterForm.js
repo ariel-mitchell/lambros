@@ -8,8 +8,11 @@ function RegisterForm() {
     const [password, setPassword] = useState('');
     const [verifyPassword, setVerifyPassword] = useState('');
     const [email, setEmail] = useState('');
-    const [adminChecked, setAdminChecked] = useState('hidden');
     const navigate = useNavigate();
+
+    const [adminChecked, setAdminChecked] = useState('hidden');
+    const [adminPassword, setAdminPassword] = useState('');
+    const [admin, setAdmin] = useState(false);
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -30,8 +33,10 @@ function RegisterForm() {
     const handleAdminChecked = (event) => {
         if(adminChecked=="visible"){
             setAdminChecked("hidden");
+            setAdmin(false);
         }else{
             setAdminChecked("visible");
+            setAdmin(true);
         }
     }
 
@@ -46,7 +51,8 @@ function RegisterForm() {
                 username: username, 
                 password: password, 
                 verifyPassword: verifyPassword, 
-                email: email 
+                email: email,
+                admin: admin
             })
             .then((response) => {
                 console.log('Register successful:', response.data);

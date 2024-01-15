@@ -36,7 +36,8 @@ public class UserController {
         User newUser = new User(
                 registrationForm.getUsername(),
                 bCryptPasswordEncoder.encode(registrationForm.getPassword()),
-                registrationForm.getEmail()
+                registrationForm.getEmail(),
+                registrationForm.isAdmin()
         );
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
