@@ -1,7 +1,4 @@
 import Banner from "../components/Banner";
-import AdminAdd from "../components/admin/AdminAdd";
-import AdminGenHash from "../components/admin/AdminGenHash";
-import AdminUpdate from "../components/admin/AdminUpdate";
 import AdminCarTable from "../components/admin/AdminCarTable";
 
 import { NavLink } from 'react-router-dom';
