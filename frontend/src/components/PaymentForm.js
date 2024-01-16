@@ -24,7 +24,7 @@ const CARD_OPTIONS = {
 
 
 export default function PaymentForm() {
-    //Show whwen payment is successful
+    //Show when payment is successful
     const [ success, setSuccess ] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
