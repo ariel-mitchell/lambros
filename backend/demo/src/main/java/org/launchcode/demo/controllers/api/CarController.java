@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 @RestController
 @CrossOrigin
@@ -22,8 +23,22 @@ public class CarController {
 
     @GetMapping(value = "")
     public ArrayList<Car> carDisplay(Model model){
-        ArrayList<Car> cars;
-        cars = CarData.findAvailableCars();
+        ArrayList<Car> cars = new ArrayList<>();
+        ArrayList<Car> unfilteredCars = (ArrayList<Car>) carRepository.findAll();
+        for(Car car : unfilteredCars){
+            if(Objects.equals(car.getStatus(), "AVAILABLE")){
+                cars.add(car);
+            }
+        }
+        model.addAttribute(cars);
+
+        //placeholder strings can get swapped around as we figure out where
+        return cars;
+    }
+
+    @GetMapping(value = "admin")
+    public ArrayList<Car> adminCarDisplay(Model model){
+        ArrayList<Car> cars = (ArrayList<Car>) carRepository.findAll();
         model.addAttribute(cars);
 
         //placeholder strings can get swapped around as we figure out where

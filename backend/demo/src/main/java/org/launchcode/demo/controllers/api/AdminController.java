@@ -35,14 +35,12 @@ public class AdminController {
         return cars;
     }
 
-    @GetMapping(value = "add")
-    public String addCar(){
-        return("aString");
-    }
-
-    @GetMapping(value = "delete")
-    public String deleteCar(){
-        return("aString");
+    @PostMapping(value = "add")
+    public ResponseEntity<?> registerUser(@RequestBody Car sendCar, HttpServletRequest request){
+        Car car = new Car(sendCar.getMake(),sendCar.getModel(), sendCar.getYear(), sendCar.getPrice(), sendCar.getMileage(), sendCar.getStatus(), "NOTFOUND.png");
+        carRepository.save(car);
+        //return ResponseEntity.ok("Car added to database");
+        return ResponseEntity.ok(car);
     }
 
 //    @PostMapping(value = "hash")
@@ -52,9 +50,10 @@ public class AdminController {
 //        return ResponseEntity.ok("Hash recorded");
 //    }
 
+    //WHEN I GET BACK TO THIS, CHANGE TO POST PLZ
     @GetMapping(value = "hash")
     public String saveHash(){
-        AdminHash newHash = new AdminHash("12345678","jneeter15@gmail.com");
+        AdminHash newHash = new AdminHash("12345678","spoots@gmail.com");
         adminHashRepository.save(newHash);
 //        System.out.println();
         return(newHash.getInstanceTime().toString());

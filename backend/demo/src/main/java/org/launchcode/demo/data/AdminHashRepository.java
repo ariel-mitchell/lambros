@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AdminHashRepository extends CrudRepository<AdminHash, Integer> {
+    //AdminHash findByEmail(String email);
 }

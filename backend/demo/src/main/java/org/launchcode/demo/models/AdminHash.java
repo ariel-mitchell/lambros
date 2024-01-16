@@ -29,9 +29,7 @@ public class AdminHash {
         this.email = email;
     }
 
-    public String getHashVal() {
-        return hashVal;
-    }
+    public String getHashVal() { return hashVal; }
 
     public void setHashVal(String hashVal) {
         this.hashVal = hashVal;

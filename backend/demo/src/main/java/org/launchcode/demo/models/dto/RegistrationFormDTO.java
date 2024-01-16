@@ -19,6 +19,8 @@ public class RegistrationFormDTO extends LoginFormDTO{
 
     private boolean admin;
 
+    private String adminPassword;
+
     public String getVerifyPassword() {
         return verifyPassword;
     }
@@ -36,4 +38,6 @@ public class RegistrationFormDTO extends LoginFormDTO{
     public boolean isAdmin() { return admin; }
 
     public void setAdmin(boolean admin) { this.admin = admin; }
+
+    public String getAdminPassword() { return adminPassword; }
 }

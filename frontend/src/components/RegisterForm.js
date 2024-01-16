@@ -52,7 +52,8 @@ function RegisterForm() {
                 password: password, 
                 verifyPassword: verifyPassword, 
                 email: email,
-                admin: admin
+                admin: admin,
+                adminPassword: adminPassword
             })
             .then((response) => {
                 console.log('Register successful:', response.data);
