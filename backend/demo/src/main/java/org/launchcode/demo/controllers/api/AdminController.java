@@ -32,8 +32,6 @@ public class AdminController {
         ArrayList<Car> cars;
         cars = CarData.findAllCars();
         model.addAttribute(cars);
-
-        //placeholder strings can get swapped around as we figure out where
         return cars;
     }
 
@@ -53,18 +51,9 @@ public class AdminController {
         return ResponseEntity.ok(car);
     }
 
-//    @PostMapping(value = "hash")
-//    public ResponseEntity<?> saveHash(@RequestBody AdminDTO adminDTO, HttpServletRequest request){
-//        AdminHash newHash = new AdminHash(adminDTO.getHashVal(),adminDTO.getEmail());
-//        adminHashRepository.save(newHash);
-//        return ResponseEntity.ok("Hash recorded");
-//    }
-
-    //WHEN I GET BACK TO THIS, CHANGE TO POST PLZ
     @PostMapping(value = "hash")
     public ResponseEntity<?> saveHash(@RequestBody AdminHash adminHash, HttpServletRequest request){
         adminHashRepository.save(adminHash);
-//        System.out.println();
         return ResponseEntity.ok(adminHash);
     }
 }
