@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from "axios";
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 
 const CarTable = ({ cars }) => {
