@@ -1,29 +1,52 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 
 function AdminGenHash(){
-    let myHash = "";
-    const hashText = document.getElementById("hashText");
+    
+    const [email, setEmail] = useState('');
+    const [hashVal, setHash] = useState('');
 
-    function generateHash(){
-        myHash = uuidv4();
-        hashText.innerHTML = myHash;
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
     }
-    // button.addEventListener("click", function(event){
-    //     
-    // });
+
+    const handleHashChange = (event) => {
+        setHash(uuidv4());
+    }
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+            await axios.post('http://localhost:8080/admin/hash', {
+                hashVal: hashVal,
+                email: email 
+            })
+            .then((response) => {
+                // console.log('Register successful:', response.data);
+                // navigate("/home");
+                // localStorage.setItem('username', username);
+            })
+            // .catch((error) => console.error('Register failed:', error));
+            
+    };
 
 
     return(<div>
-        {/* Button for AdminGenHash */}
         <h1>Generate Admin Hash</h1>
-            <button onClick={generateHash()}>Generate</button> 
-            <p id="hashText"></p>
-        <h1>Enter Admin Hash</h1>
-            <form method="post">
-            <input type="text" id="userin"/><br/>
-            <input type="submit"/><br/>
-            </form>
+                <div className="form-group">
+                    <label>
+                        New User Email:
+                        <input type='email' id='email' name='email' placeholder='email' className='form-control' value={email} onChange={handleEmailChange} autoComplete="on" />
+                    </label>
+                </div>
+                <br />
+                <div>
+                    <button onClick={handleHashChange}>Generate</button>
+                    <button onClick={handleSubmit}>Save</button>
+                </div>
+            <br/>
+            <p>Admin Security Code will appear here:</p>
+            <p>{hashVal}</p>
     </div>);
 }
 
