@@ -8,7 +8,7 @@ function AdminAdd(){
     const [year, setYear] = useState('');
     const [price, setPrice] = useState('');
     const [mileage, setMileage] = useState('');
-    const [status, setStatus] = useState('');
+    const [status, setStatus] = useState('OUT OF SERVICE');
 
     const handleMakeChange = (event) => {
         setMake(event.target.value);
@@ -31,7 +31,7 @@ function AdminAdd(){
     };
 
     const handleStatusChange = (event) => {
-        if(event.target.value){
+        if(event.target.value == "OUT OF SERVICE"){
             setStatus("AVAILABLE");
         } else {
             setStatus("OUT OF SERVICE");

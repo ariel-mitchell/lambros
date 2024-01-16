@@ -1,9 +1,19 @@
-
-//const axios = require('axios').default;
-import React from "react";
-import Axios from "axios";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function AdminUpdate(){
+    const [mileage, setMileage] = useState('');
+    const [status, setStatus] = useState('');
+    const [id, setId] = useState('');
+
+    const handleMileageChange = (event) => {
+        setMileage(event.target.value);
+    };
+
+    const handleStatusChange = (event) => {
+        setStatus(event.target.value);
+    };
     //update car form
     return(
     <div>
