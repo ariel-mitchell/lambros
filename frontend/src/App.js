@@ -9,6 +9,7 @@ import Admin from './pages/Admin';
 import Add from './pages/admin/Add';
 import Update from './pages/admin/Update';
 import Hash from './pages/admin/Hash';
+import Rent from './pages/Rent';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/rent" element={<Rent />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
