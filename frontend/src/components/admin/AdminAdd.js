@@ -50,9 +50,9 @@ function AdminAdd(){
                 status: status
             })
             .then((response) => {
-                console.log('Register successful:', response.data);
+                console.log('Add car successful:', response.data);
             })
-            .catch((error) => console.error('Register failed:', error));
+            .catch((error) => console.error('Add car failed:', error));
             
     };
 

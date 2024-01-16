@@ -8,12 +8,14 @@ import org.launchcode.demo.models.Car;
 import org.launchcode.demo.models.CarData;
 import org.launchcode.demo.models.dto.AdminDTO;
 import org.launchcode.demo.models.dto.RegistrationFormDTO;
+import org.launchcode.demo.models.dto.UpdateDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -36,10 +38,18 @@ public class AdminController {
     }
 
     @PostMapping(value = "add")
-    public ResponseEntity<?> registerUser(@RequestBody Car sendCar, HttpServletRequest request){
+    public ResponseEntity<?> addCar(@RequestBody Car sendCar, HttpServletRequest request){
         Car car = new Car(sendCar.getMake(),sendCar.getModel(), sendCar.getYear(), sendCar.getPrice(), sendCar.getMileage(), sendCar.getStatus(), "NOTFOUND.png");
         carRepository.save(car);
-        //return ResponseEntity.ok("Car added to database");
+        return ResponseEntity.ok(car);
+    }
+
+    @PostMapping(value = "update")
+    public ResponseEntity<?> updateCar(@RequestBody UpdateDTO update, HttpServletRequest request){
+        Car car = carRepository.findById(update.getId()).get();
+        car.setMileage(update.getMileage());
+        car.setStatus(update.getStatus());
+        carRepository.save(car);
         return ResponseEntity.ok(car);
     }
 
@@ -51,11 +61,10 @@ public class AdminController {
 //    }
 
     //WHEN I GET BACK TO THIS, CHANGE TO POST PLZ
-    @GetMapping(value = "hash")
-    public String saveHash(){
-        AdminHash newHash = new AdminHash("12345678","spoots@gmail.com");
-        adminHashRepository.save(newHash);
+    @PostMapping(value = "hash")
+    public ResponseEntity<?> saveHash(@RequestBody AdminHash adminHash, HttpServletRequest request){
+        adminHashRepository.save(adminHash);
 //        System.out.println();
-        return(newHash.getInstanceTime().toString());
+        return ResponseEntity.ok(adminHash);
     }
 }

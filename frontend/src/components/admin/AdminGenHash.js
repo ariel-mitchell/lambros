@@ -11,12 +11,11 @@ function AdminGenHash(){
         setEmail(event.target.value);
     }
 
-    const handleSubmit = (event) => {
+    const handleHashChange = (event) => {
         setHash(uuidv4());
-        //axiosSubmit();
     }
 
-    const axiosSubmit = async (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
             await axios.post('http://localhost:8080/admin/hash', {
                 hashVal: hashVal,
@@ -42,7 +41,8 @@ function AdminGenHash(){
                 </div>
                 <br />
                 <div>
-                    <button onClick={handleSubmit}>Generate</button>
+                    <button onClick={handleHashChange}>Generate</button>
+                    <button onClick={handleSubmit}>Save</button>
                 </div>
             <br/>
             <p>Admin Security Code will appear here:</p>
