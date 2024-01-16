@@ -10,6 +10,10 @@ function RegisterForm() {
     const [email, setEmail] = useState('');
     const navigate = useNavigate();
 
+    const [adminChecked, setAdminChecked] = useState('hidden');
+    const [adminPassword, setAdminPassword] = useState('');
+    const [admin, setAdmin] = useState(false);
+
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
     };
@@ -26,6 +30,16 @@ function RegisterForm() {
         setEmail(event.target.value);
     }
 
+    const handleAdminChecked = (event) => {
+        if(adminChecked=="visible"){
+            setAdminChecked("hidden");
+            setAdmin(false);
+        }else{
+            setAdminChecked("visible");
+            setAdmin(true);
+        }
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (password !== verifyPassword) {
@@ -33,16 +47,20 @@ function RegisterForm() {
             alert('Passwords do not match')
             return;
         }
-        await axios.post('http://localhost:8080/api/user/register', {
-            username: username, 
-            password: password, 
-            verifyPassword: verifyPassword, 
-            email: email 
-        }).then((response) => {
-            console.log('Register successful:', response.data);
-            navigate("/home");
-            localStorage.setItem('username', username);
-        }).catch((error) => console.error('Register failed:', error));
+            await axios.post('http://localhost:8080/api/user/register', {
+                username: username, 
+                password: password, 
+                verifyPassword: verifyPassword, 
+                email: email,
+                admin: admin,
+                adminPassword: adminPassword
+            })
+            .then((response) => {
+                console.log('Register successful:', response.data);
+                navigate("/home");
+                localStorage.setItem('username', username);
+            })
+            .catch((error) => console.error('Register failed:', error));
             
     };
 
@@ -74,6 +92,18 @@ function RegisterForm() {
                     <label>
                         Email:
                         <input type='email' id='email' name='email' placeholder='email' className='form-control' value={email} onChange={handleEmailChange} autoComplete="on" />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Register as Admin:&nbsp;&nbsp;
+                        <input type='checkbox' name="admin" value={adminChecked} onClick={handleAdminChecked}/>
+                    </label>
+                </div>
+                <div style={{visibility:adminChecked}}>
+                    <label>
+                        Enter your Admin Security Code:
+                        <input type='password'/>
                     </label>
                 </div>
                 <br />
