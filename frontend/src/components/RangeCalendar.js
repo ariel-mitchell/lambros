@@ -4,21 +4,21 @@ import { addDays } from 'date-fns';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 
-const RangeCalendar = () => {
-    const [state, setState] = useState([
-        {
-            startDate: new Date(),
-            endDate: addDays(new Date(), 7),
-            key: 'selection'
-        }
-    ]);
+const RangeCalendar = ( { range, setRange } ) => {
 
-    const calculateDays = () => {
-        const range = state[0];
-        const days = Math.round((range.endDate - range.startDate) / (1000 * 3600 * 24)) + 1;
-        localStorage.setItem('days', days)
-        return days; // Add 1 to include both start and end dates in the count
-    };
+    // const [state, setState] = useState([
+    //     {
+    //         startDate: new Date(),
+    //         endDate: addDays(new Date(), 7),
+    //         key: 'selection'
+    //     }
+    // ]);
+
+    const handleSelect = (ranges) => {
+        setRange(ranges.selection);
+    }
+
+    
 
     return (
         <div>
@@ -30,15 +30,17 @@ const RangeCalendar = () => {
             }
         </style>
             <DateRangePicker
-                onChange={item => setState([item.selection])}
+                // onChange={item => setState([item.selection])}
+                onChange={handleSelect}
                 showSelectionPreview={true}
                 moveRangeOnFirstSelection={false}
                 months={2}
-                ranges={state}
+                // ranges={state}
+                ranges={[range]}
                 direction="horizontal"
                 minDate={new Date()}
             />
-            <p>Total Days: {calculateDays()}</p>
+            
         </div>
     );
 }

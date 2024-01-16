@@ -23,12 +23,15 @@ public class User extends AbstractEntity{
     @Email
     private String email;
 
+    private boolean admin;
+
     public User() {}
 
-    public User(String username, String password, String email) {
+    public User(String username, String password, String email, boolean admin) {
         this.username = username;
         this.pwHash = encoder.encode(password);
         this.email = email;
+        this.admin = admin;
     }
 
     public String getUsername() {
