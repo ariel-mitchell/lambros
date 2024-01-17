@@ -19,7 +19,7 @@ function RentForm() {
     const carYear = localStorage.getItem('carYear');
     const carPrice = localStorage.getItem('carPrice');
     const days = Math.round((dateRange.endDate - dateRange.startDate) / (1000 * 3600 * 24)) + 1;
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     
     const handleFirstNameChange = (event) => {
         setFirstName(event.target.value);
@@ -45,12 +45,12 @@ function RentForm() {
         localStorage.setItem('days', days);
         localStorage.setItem('startDate', dateRange.startDate.toDateString());
         localStorage.setItem('endDate', dateRange.endDate.toDateString());
-        localStorage.setItem('firstName', firstName)
-        localStorage.setItem('lastName', lastName)
-        localStorage.setItem('phoneNumber', phoneNumber)
-        localStorage.setItem('address', address)
-        localStorage.setItem('email', email)
-        //navigate('/pay')
+        localStorage.setItem('firstName', firstName);
+        localStorage.setItem('lastName', lastName);
+        localStorage.setItem('phoneNumber', phoneNumber);
+        localStorage.setItem('address', address);
+        localStorage.setItem('email', email);
+        navigate('/invoice');
     }
      
     const calculateTotal = () => {

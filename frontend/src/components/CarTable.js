@@ -35,8 +35,8 @@ const CarTable = ({ cars }) => {
                     <th>Make</th>
                     <th>Model</th>
                     <th>Year</th>
-                    <th>Price Per Hour*</th>
-                    <th>Price Per Day*</th>
+                    {/* <th>Price Per Hour</th> */}
+                    <th>Price Per Day</th>
                     <th></th>
                 </tr>
             </thead>
@@ -48,7 +48,7 @@ const CarTable = ({ cars }) => {
                         <td>{car.make}</td>
                         <td>{car.model}</td>
                         <td>{car.year}</td>
-                        <td>${car.price}</td>
+                        {/* <td>${car.price}</td> */}
                         <td>${car.price * 10}</td>
                         <td><button className='btn btn-primary' onClick={() => handleRentButton(car)}>RENT</button></td>
                     </tr>
