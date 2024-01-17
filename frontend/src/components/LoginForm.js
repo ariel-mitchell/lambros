@@ -24,10 +24,14 @@ function LoginForm() {
         })
         .then((response) => {
             console.log('Login successful:', response.data);
+            alert("Login successful")
             navigate("/home");
             localStorage.setItem('username', username);
         })
-        .catch((error) => console.error('Login failed:', error));
+        .catch((error) => {
+            console.error('Login failed:', error)
+            alert('Login failed: Username or password incorrect', error)
+        });
     };
 
     return (

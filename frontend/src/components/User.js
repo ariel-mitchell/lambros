@@ -16,6 +16,7 @@ const User = () => {
         axios.post('http://localhost:8080/api/user/logout')
         .then(response => {
             console.log('Logout successful:', response.data);
+            alert('Logout successful');
             localStorage.removeItem('username');
             setUsername('');
             navigate('/login');
