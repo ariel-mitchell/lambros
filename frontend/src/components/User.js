@@ -17,7 +17,7 @@ const User = () => {
         .then(response => {
             console.log('Logout successful:', response.data);
             alert('Logout successful');
-            localStorage.removeItem('username');
+            localStorage.clear();
             setUsername('');
             navigate('/login');
         }).catch(error => {

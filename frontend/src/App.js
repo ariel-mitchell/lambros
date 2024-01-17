@@ -10,6 +10,7 @@ import Add from './pages/admin/Add';
 import Update from './pages/admin/Update';
 import Hash from './pages/admin/Hash';
 import Rent from './pages/Rent';
+import Invoice from './pages/Invoice';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/rent" element={<Rent />} />
+          <Route path="/invoice" element={<Invoice />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
