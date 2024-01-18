@@ -1,4 +1,5 @@
 import Banner from "../components/Banner";
+import AdminBootUser from "../components/admin/AdminBootUser";
 import AdminCarTable from "../components/admin/AdminCarTable";
 
 import { NavLink } from 'react-router-dom';
@@ -6,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 function Admin() {
     return (
         <>
+        <AdminBootUser/>
         <Banner/>
         <NavLink to="/admin/add">
             <button>Add Car to Database</button>

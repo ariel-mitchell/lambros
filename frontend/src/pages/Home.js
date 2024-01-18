@@ -12,8 +12,6 @@ function Home() {
         <Banner/>
         <div style={{ width: "50vw", height: "50vh", margin:'auto'}}>
             <Canvas id='myCanvas' size={[`1000px`,`3000px`]} camera={{position: [10, 0, 80], rotation: [0,0,0], fov: 45}} style={{width: `100%`, height: `100%`, position: `relative` }}>
-                {/* <pointLight position={[30, 30, 30]} />
-                <ambientLight intensity={[20]}/> */}
                 <directionalLight position={[0,5,0]} intensity={[20]}/>
                 <Car3DModel position={[0,0,0]}/>               
             </Canvas>
