@@ -67,7 +67,7 @@ public class UserController {
             return ResponseEntity.badRequest().body("Invalid username or password");
         }
         setUserInSession(request.getSession(), existingUser);
-        return ResponseEntity.ok("User logged in successfully");
+        return ResponseEntity.ok(existingUser.isAdmin());
     }
 
     @PostMapping("/logout")
