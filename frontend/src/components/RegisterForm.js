@@ -104,7 +104,7 @@ function RegisterForm() {
                     <div className="form-group">
                         <label>
                             Email:
-                            <input type='email' id='email' name='email' placeholder='email' className='form-control' value={email} onChange={handleEmailChange} autoComplete="on" />
+                            <input type='email' id  ='email' name='email' placeholder='email' className='form-control' value={email} onChange={handleEmailChange} autoComplete="on" />
                         </label>
                     </div>
                     <div>
