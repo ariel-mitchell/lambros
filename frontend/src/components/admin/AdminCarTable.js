@@ -32,13 +32,13 @@ const CarTable = ({ cars }) => {
             <tbody>
                 {post.map((car, index) => (
                     <tr key={index}>
-                        <td className="text-center align-middle">{car.id}</td>
-                        <td className="text-center align-middle">{car.make}</td>
-                        <td className="text-center align-middle">{car.model}</td>
-                        <td className="text-center align-middle">{car.year}</td>
-                        <td className="text-center align-middle">${car.price}</td>
-                        <td className="text-center align-middle">${car.price * 10}</td>
-                        <td className="text-center align-middle">{car.status}</td>
+                        <td>{car.id}</td>
+                        <td>{car.make}</td>
+                        <td>{car.model}</td>
+                        <td>{car.year}</td>
+                        <td>${car.price}</td>
+                        <td>${car.price * 10}</td>
+                        <td>{car.status}</td>
                     </tr>
                 ))}
             </tbody>
