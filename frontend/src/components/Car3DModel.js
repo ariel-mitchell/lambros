@@ -10,24 +10,23 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 function Car3DModel(props) {
   const { nodes, materials } = useLoader(GLTFLoader, '/images/LamboPlusCollisionBoxes.glb')
-  // const ref0 = useRef();
-  // useFrame((state, delta) => (ref0.current.rotation.z += 0.005));
-  // const ref1 = useRef();
-  // useFrame((state, delta) => (ref1.current.rotation.y += 0.005));
 
-  // const [hovered, hover] = useState(false);
-
-    const ref0 = useRef();
+  const [hovered, hover] = useState(0.005);
+  const ref0 = useRef();
   useFrame((state, delta) => (ref0.current.rotation.z += hovered));
   const ref1 = useRef();
   useFrame((state, delta) => (ref1.current.rotation.y += hovered));
 
-  const [hovered, hover] = useState(0.005);
+  // const canvas = document.getElementById("myCanvas");
+  // const ctx = canvas.
+  // ctx.fillStyle = "#FF0000";
+  // ctx.fillRect(0, 0, 150, 75);
 
   const featureStrings = ["Sleek, futuristic interior", "1015 CV Hybrid Engine", "0-100 km/h in 2.5s"]
 
   return (
-    <group {...props} dispose={null} onPointerOver={(event) => hover(0)} onPointerOut={(event) => hover(0.005)}>
+    
+    <group {...props} dispose={null} position={[10,0,0]} scale={[16,16,16]} onPointerOver={(event) => hover(0)} onPointerOut={(event) => hover(0.005)}>
       <group position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} ref={ref0}>
         <group position={[-1.215,0,0]}>
         <group scale={0.001}>
@@ -6407,25 +6406,31 @@ function Car3DModel(props) {
           castShadow
           receiveShadow
           geometry={nodes.Cube.geometry}
-          material={nodes.Cube.material}
+          // material={nodes.Cube.material}
           scale={[0.707, 0.275, 0.707]}
-        />
+          >
+          <meshPhongMaterial color="#ff0000" opacity={0} transparent />
+        </mesh>
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Cylinder.geometry}
-          material={nodes.Cylinder.material}
+          // material={nodes.Cylinder.material}
           rotation={[Math.PI / 2, 0, 0]}
           scale={[0.39, 1.165, 0.39]}
-        />
+          >
+          <meshPhongMaterial color="#ff0000" opacity={0} transparent />
+        </mesh>
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Cube001.geometry}
-          material={nodes.Cube001.material}
+          // material={nodes.Cube001.material}
           position={[-2.139, 0, 0]}
           scale={0.989}
-        />
+        >
+          <meshPhongMaterial color="#ff0000" opacity={0} transparent />
+        </mesh>
       </group>
     </group>
   );
