@@ -1,7 +1,5 @@
 import Banner from "../components/Banner";
-import AdminAdd from "../components/admin/AdminAdd";
-import AdminGenHash from "../components/admin/AdminGenHash";
-import AdminUpdate from "../components/admin/AdminUpdate";
+import AdminBootUser from "../components/admin/AdminBootUser";
 import AdminCarTable from "../components/admin/AdminCarTable";
 
 import { NavLink } from 'react-router-dom';
@@ -9,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 function Admin() {
     return (
         <>
+        <AdminBootUser/>
         <Banner/>
         <div style={{display:'flex', paddingTop:'50px', justifyContent:"space-evenly"}}>
             <NavLink to="/admin/add">

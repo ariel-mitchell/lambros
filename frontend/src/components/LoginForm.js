@@ -23,10 +23,11 @@ function LoginForm() {
             password: password
         })
         .then((response) => {
-            console.log('Login successful:', response.data);
+            console.log('Login successful; User is admin: ', response.data);
             alert("Login successful")
             navigate("/home");
             localStorage.setItem('username', username);
+            localStorage.setItem('isAdmin',response.data);
         })
         .catch((error) => {
             console.error('Login failed:', error)
