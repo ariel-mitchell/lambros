@@ -48,5 +48,7 @@ public class User extends AbstractEntity{
         return email;
     }
 
-
+    public boolean isAdmin() {
+        return admin;
+    }
 }
