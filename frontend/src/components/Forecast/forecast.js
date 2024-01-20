@@ -5,19 +5,19 @@ import Axios  from 'axios';
 const Forecast = () => {
     const [city, setCity] = useState('');
     const [forecastData, setForecastData] = useState(null);
-
+    
     
     const fetchData = async () => {
         try {
             const response = await Axios.get(
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=dd8e1bd7b2cce53b0b82b44535866807`
-            );
-            setForecastData(response.data);
-            console.log(response.data);
-        } catch (error) {
-            console.error(error)
-        }
-    };
+                );
+                setForecastData(response.data);
+                console.log(response.data);
+            } catch (error) {
+                console.error(error)
+            }
+        };
 
     useEffect(() => {
       fetchData();  
