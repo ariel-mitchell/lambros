@@ -1,3 +1,4 @@
+import './Forecast.css'
 import React, { useEffect, useState } from 'react'
 import Axios  from 'axios';
 
@@ -35,27 +36,29 @@ const Forecast = () => {
 
     //TODO: Add Design layout and Icons
     return (
-        <div>
+        <>
+        <div className='Weather-Container'>
             <form onSubmit={handleSubmit}>
                 <input
                 type='text'
-                placeholder='Enter city'
+                placeholder='Enter city and press enter'
                 value={city}
                 onChange={handleInputChange}
                 />
             </form>
             {forecastData ? (
-                <>
+                <div className="WeatherWidget">
                 <h2>{forecastData.name}</h2>
                 <p>Temperature: {forecastData.main.temp}&deg;</p>
                 <p>Description: {forecastData.weather[0].description}</p>
                 <p>Feels like: {forecastData.main.feels_like}&deg;</p>
                 <p>Wind Speed: {forecastData.wind.speed} mph</p>
-                </>
+                </div>
             ) : (
                 <p>Waiting for input...</p>
             )}
         </div>
+        </>
     );
 }
 
