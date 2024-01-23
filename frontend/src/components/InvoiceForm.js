@@ -12,8 +12,11 @@ const InvoiceForm = () => {
     const lastName = localStorage.getItem('lastName');
     const phoneNumber = localStorage.getItem('phoneNumber');
     const address = localStorage.getItem('address');
-    const email =localStorage.getItem('email');
-    const invoiceNumber = Math.ceil(Math.random() * 9999999);
+    const city = localStorage.getItem('city');
+    const state = localStorage.getItem('state');
+    const zipCode = localStorage.getItem('zipCode')
+    const email = localStorage.getItem('email');
+    const invoiceNumber = localStorage.getItem('invoiceNumber')
 
     return(
         <div style={{width:'60%', margin: '5rem auto'}}>
@@ -22,6 +25,7 @@ const InvoiceForm = () => {
             <p style={{ paddingLeft: '40px' }}>
                 {firstName} {lastName} <br />
                 {address} <br />
+                {city}, {state} {zipCode} <br /><br />
                 Phone number: {phoneNumber} <br />
                 Email: {email}
             </p>

@@ -7,6 +7,7 @@ const CarTable = ({ cars }) => {
 
     //grab data from backend
     const [post, setPost] = React.useState(null);
+    const username = localStorage.getItem('username');
     const navigate = useNavigate();
 
     React.useEffect(() => {
@@ -28,7 +29,7 @@ const CarTable = ({ cars }) => {
     if (!post) return null
     //return table with updated car data
     return (
-        <table className="table table-hover table-striped" style={{ marginTop: '50px' }}>
+        <table className="table table-hover table-striped">
             <thead className="table-dark">
                 <tr>
                     <th></th>
@@ -50,7 +51,7 @@ const CarTable = ({ cars }) => {
                         <td>{car.year}</td>
                         {/* <td>${car.price}</td> */}
                         <td>${car.price * 10}</td>
-                        <td><button className='btn btn-primary' onClick={() => handleRentButton(car)}>RENT</button></td>
+                        {username ? <td><button className='btn btn-primary' onClick={() => handleRentButton(car)}>RENT</button></td> : <td></td>}
                     </tr>
                 ))}
             </tbody>
