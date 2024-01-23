@@ -44,4 +44,8 @@ public class AdminHash {
     }
 
     public LocalDateTime getInstanceTime() { return instanceTime; }
+
+    public int getId() {
+        return id;
+    }
 }

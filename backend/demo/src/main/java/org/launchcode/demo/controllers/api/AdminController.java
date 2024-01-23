@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -55,5 +56,18 @@ public class AdminController {
     public ResponseEntity<?> saveHash(@RequestBody AdminHash adminHash, HttpServletRequest request){
         adminHashRepository.save(adminHash);
         return ResponseEntity.ok(adminHash);
+    }
+
+    @PostMapping(value = "clear")
+    public ResponseEntity<?> clearHashes(HttpServletRequest request){
+        int hashesCleared = 0;
+          adminHashRepository.findAll();
+//        for(AdminHash hash : checkHashes){
+//            if(hash.getInstanceTime().isAfter(LocalDateTime.now().plusDays(1))){
+//                adminHashRepository.deleteById(hash.getId());
+//                hashesCleared += 1;
+//            }
+//        }
+        return ResponseEntity.ok("Hashes cleared successfully: " + hashesCleared);
     }
 }
